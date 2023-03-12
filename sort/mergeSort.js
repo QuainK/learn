@@ -37,7 +37,33 @@ function mergeSort(arr1, arr2) {
   return result
 }
 
-// let mergeArr1 = [1, 2, 3]
-let mergeArr1 = [1, 6, 9]
+/**
+ * 第二版
+ */
+function mergeSortVer2(arr1, arr2) {
+  let result = []
+
+  // 两个数组不断比较元素大小，将小的元素放进结果数组
+  while (arr1.length && arr2.length) {
+    if (arr1[0] <= arr2[0]) {
+      result.push(arr1.shift())
+    } else {
+      result.push(arr2.shift())
+    }
+  }
+
+  // 如果其中一个数组已经取完了，剩下的数组直接全部放进结果数组
+  while (arr1.length) {
+    result.push(arr1.shift())
+  }
+  while (arr2.length) {
+    result.push(arr2.shift())
+  }
+
+  return result
+}
+
+let mergeArr1 = [1, 2, 3]
+// let mergeArr1 = [1, 6, 9]
 let mergeArr2 = [1, 3, 5]
 console.log(mergeSort(mergeArr1, mergeArr2))
