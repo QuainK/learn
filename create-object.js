@@ -78,7 +78,7 @@ PersonC.prototype = {
     return 'My name is ' + this.name
   }
 }
-const person9 = new PersonC
+const person9 = new PersonC()
 person9.name = 'Daniel'
 console.log('person9', person9.name, person9.age, person9.say())
 console.log('job' in person9, 'address' in person9)
