@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      padding: 16px;
+    }
+    .box {
+      padding: 16px;
+      border: 1px solid #000;
+      width: 100%;
+      height: 100%;
+    }
+    .row {
+      display: flex;
+    }
+    .row-1 {
+      height: 60%;
+    }
+    .row-2 {
+      height: 40%;
+    }
+    .big-block {
+      flex: none;
+      width: 28%;
+    }
+    .middle-block {
+      flex: none;
+      width: 20%;
+    }
+    .small-block {
+      flex: none;
+      width: 18%;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      flex: auto;
+      width: 100%;
+    }
+    .grid-item {
+      width: 50%;
+      height: 50%;
+    }
+    .row-1-big-block {
+      background-color: lightcoral;
+    }
+    .row-1-middle-block {
+      background-color: skyblue;
+    }
+    .grid-item-1 {
+      background-color: lightyellow;
+    }
+    .grid-item-2 {
+      background-color: dodgerblue;
+    }
+    .row-2-big-block {
+      background-color: forestgreen;
+    }
+    .small-block-1 {
+      background-color: lightpink;;
+    }
+    .small-block-2 {
+      background-color: darkolivegreen;
+    }
+  </style>
+</head>
+<body>
+<!-- 外层边框和容器 -->
+<div class="box">
+
+  <!-- 第一行 -->
+  <div class="row row-1">
+    <!-- 大方块 -->
+    <div class="big-block row-1-big-block"></div>
+    <!-- 中方块 -->
+    <div class="middle-block row-1-middle-block"></div>
+    <!-- 田字格 容器 -->
+    <div class="grid">
+      <!-- 田字格 单项 -->
+      <div class="grid-item grid-item-1"></div>
+      <div class="grid-item grid-item-2"></div>
+      <div class="grid-item grid-item-2"></div>
+      <div class="grid-item grid-item-1"></div>
+    </div>
+  </div>
+
+  <!-- 第二行 -->
+  <div class="row row-2">
+    <!-- 大方块 -->
+    <div class="big-block row-2-big-block"></div>
+    <!-- 小方块 -->
+    <div class="small-block small-block-1"></div>
+    <div class="small-block small-block-2"></div>
+    <div class="small-block small-block-1"></div>
+    <div class="small-block small-block-2"></div>
+  </div>
+
+</div>
+</body>
+</html>
