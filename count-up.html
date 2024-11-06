@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>滚动数字</title>
+  <style>
+    * {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+    #counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      color: #fe2b33;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div id="counter"></div>
+<script>
+  const startNumber = 20000; // 起始数字
+  const targetNumber = 35000; // 目标数字
+  const duration = 2000; // 动画持续时间，单位为毫秒
+
+  const counterElement = document.querySelector('#counter'); // 获取数字显示的元素
+
+  let startTime = null; // 动画开始时间
+
+  function step(timestamp) {
+    console.log(timestamp)
+    if (!startTime) startTime = timestamp; // 记录动画开始时间
+
+    const progress = timestamp - startTime; // 计算动画进度
+    console.log(progress, timestamp, startTime)
+    // 根据动画进度计算当前数字的值
+    const currentNumber = startNumber + Math.round((targetNumber - startNumber) * (progress / duration));
+
+    counterElement.textContent = currentNumber + ''; // 更新数字显示
+
+    if (progress < duration) {
+      // 继续下一帧动画
+      requestAnimationFrame(step); // 60FPS 执行一次，延时器 // 60FPS = 一帧
+    } else {
+      // 动画结束，显示最终数字
+      counterElement.textContent = targetNumber + '';
+    }
+  }
+
+  // 启动动画
+  requestAnimationFrame(step);
+</script>
+</body>
+</html>
